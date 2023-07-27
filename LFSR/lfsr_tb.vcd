@@ -1,0 +1,181 @@
+$date
+	Wed Jul 26 21:49:06 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module lfsr_tb $end
+$var wire 4 ! out [3:0] $end
+$var wire 1 " clk $end
+$var reg 1 # clk_enable $end
+$var reg 1 $ rst $end
+$var reg 4 % seed [3:0] $end
+$scope module clk_gen $end
+$var wire 1 # enable $end
+$var reg 1 " clk $end
+$var reg 1 & start_clk $end
+$var real 1 ' clk_off $end
+$var real 1 ( clk_on $end
+$var real 1 ) clk_pd $end
+$var real 1 * quarter $end
+$var real 1 + start_dly $end
+$upscope $end
+$scope module uut $end
+$var wire 1 " clk $end
+$var wire 1 $ rst $end
+$var wire 4 , seed [3:0] $end
+$var reg 4 - out [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx -
+b1111 ,
+r0 +
+r1.25 *
+r5 )
+r2.5 (
+r2.5 '
+1&
+b1111 %
+x$
+1#
+1"
+bx !
+$end
+#2500
+0"
+#5000
+b1111 !
+b1111 -
+0$
+1"
+#7500
+0"
+#10000
+1$
+1"
+#12500
+0"
+#15000
+b1110 !
+b1110 -
+1"
+#17500
+0"
+#20000
+b1100 !
+b1100 -
+1"
+#22500
+0"
+#25000
+b1000 !
+b1000 -
+1"
+#27500
+0"
+#30000
+b1 !
+b1 -
+1"
+#32500
+0"
+#35000
+b10 !
+b10 -
+1"
+#37500
+0"
+#40000
+b100 !
+b100 -
+1"
+#42500
+0"
+#45000
+b1001 !
+b1001 -
+1"
+#47500
+0"
+#50000
+b11 !
+b11 -
+1"
+#52500
+0"
+#55000
+b110 !
+b110 -
+1"
+#57500
+0"
+#60000
+b1101 !
+b1101 -
+1"
+#62500
+0"
+#65000
+b1010 !
+b1010 -
+1"
+#67500
+0"
+#70000
+b101 !
+b101 -
+1"
+#72500
+0"
+#75000
+b1011 !
+b1011 -
+1"
+#77500
+0"
+#80000
+b111 !
+b111 -
+1"
+#82500
+0"
+#85000
+b1111 !
+b1111 -
+1"
+#87500
+0"
+#90000
+b1110 !
+b1110 -
+1"
+#92500
+0"
+#95000
+b1100 !
+b1100 -
+1"
+#97500
+0"
+#100000
+b1000 !
+b1000 -
+1"
+#102500
+0"
+#105000
+b1 !
+b1 -
+1"
+#107500
+0"
+#110000
+b10 !
+b10 -
+1"
