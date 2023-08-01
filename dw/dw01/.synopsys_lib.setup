@@ -1,0 +1,8 @@
+set lib_vhdl_dir    ./src
+set lib_verilog_dir ./src_ver
+set lib_sim_dir     ./lib
+set lib_syn_dir     ./lib
+set lib_mra_dir     ./lib
+set lib_symbol_dir  ./symbol
+set lib_tech_lib    ../../libraries/syn/dw01.sldb
+

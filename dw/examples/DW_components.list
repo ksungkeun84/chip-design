@@ -1,0 +1,352 @@
+   *****************************************************************************
+   *                                                                           *
+   *      This confidential and proprietary information may be used only as    *
+   *      authorized  by a  licensing  agreement from  Synopsys Inc. In the    *
+   *      event of publication, the following notice is applicable:            *
+   *                    (C) COPYRIGHT 1998-1999   SYNOPSYS INC.                *
+   *                          ALL RIGHTS RESERVED                              *
+   *      The entire notice above must be reproduced on all authorized copies. *
+   *                                                                           *
+   *****************************************************************************
+   *                                                                           *
+   *      DesignWare Foundation Library is a collection of pre-designed, pre-  *
+   *      verified, technology-independent  components. These building blocks  *
+   *      are tightly integrated with Synopsys Design Compiler and can also be *
+   *      inferred through HDL operators or functions or directly instantiated.*
+   *      These blocks include simulation  models(Verilog and VHDL) for faster *
+   *      simulation speed.                                                    *
+   *                                                                           *
+   *****************************************************************************
+   *                                                                           *
+   *               LIST OF DESIGNWARE FOUNDATION COMPONENTS                    *
+   *               ========================================                    *
+   *                                                                           *
+   *     Last Modified:  May 31, 2002 by tomh                                  *
+   *     Comment out membist                                                   *
+   *     Add DW_rambist                                                        *
+   *                                                                           *
+   *     Last Modified:  Apr 7, 2002 by tomh                                   *
+   *     Added note tag W->OpenVera Compliant                                  *
+   *     Applied to: ahb_master_vmt, ahb_slave_vmt, ahb_monitor_vmt            *
+   *                 apb_master_vmt, apb_slave_vmt, apb_monitor_vmt            *
+   *                                                                           *
+   *     Last Modified:  Mar 28, 2002 by tomh                                  *
+   *     Added DW_C166S and DW_MIPS4KE star ip components                      *
+   *     Updated DW_usbd with Gain star ip info                                *
+   *                                                                           *
+   *     Last Modified:  Mar 18, 2002                                          *
+   *     Added DW_div_seq, DW_mult_seq, DW_sqrt_seq component for the Jun 2002 *
+   *     EST releases.                                                         *
+   *                                                                           *
+   *     Last Modified:  Mar 5, 2002 by tomh                                   *
+   *     Added membist as keyword for DW_membist                               *
+   *                                                                           *
+   *     Last Modified:  Feb 22, 2002 by tomh                                  *
+   *     Added new 'V' flag for VERA Verification IP.                          *
+   *     Added the AMBA IIP & VIP components                                   *
+   *     Fixed spelling typos: changed Asychronous -> Asynchronous             *
+   *                                                                           *
+   *     Last Modified:  Feb 15, 2002 by tomh                                  *
+   *     Added keywords for DW_memctl                                          *
+   *                                                                           *
+   *     Last Modified:  Jan 29, 2002 by garykam                               *
+   *     Added 4 Gray code parts for Jan/02 EST Release                        *
+   *     Moved DW03_cntr_gray to obsolete status                               *
+   *                                                                           *
+   *     Last Modified:  Jan 17, 2002 by tomh                                  *
+   *     Added DW_memctl macrocell 					       *
+   *                                                                           *
+   *     Last Modified:  Nov 26, 2001                                          *
+   *     Added PCIX and other macrocell data				       *
+   *     Took out MPEG data						       *
+   *									       *
+   *     Last Modified:  Aug 15, 2001                                          *
+   *     Added DW_arbiter_fcfs and DW_arbiter_2t component for 2001.08 Release *
+   *                                                                           *
+   *     Last Modified:  Mar 7, 2001                                           *
+   *     Added DW_dpll_sd component for the Feb 2001 and Mar 2001 EST          *
+   *     releases.                                                             *
+   *                                                                           *
+   *     Last Modified:  Sep 30, 2000                                          *
+   *     Keywords were appended for all the components. Component description  *
+   *     field was also updated to match the databook component description    *
+   *                                                                           *
+   *     Last Modified:  Aug 29, 2000                                          *
+   *	 The following components or architectures are added in Sep00 EST:     *
+   *	 DW_sqrt(rpl,cla).			                               *
+   *                                                                           *
+   *     Last Modified:  Apr 21, 2000                                          *
+   *	 The following components or architectures are added in Aug00 EST:     *
+   *	 DW_minmax(clas), DW_crc_p, DW_div(rpl,cla,cla2).                      *
+   *                                                                           *
+   *                                                                           *
+   *     Symbol Used                                                           *
+   *     B   -> Can be accessed through Functional Inference with BC only      *
+   *     C   -> Complex Commodity IP                                           *
+   *     F   -> Can be accessed through Functional Inference                   *
+   *     G   -> Can be accessed through Functional Inference with Verilog only *
+   *     I   -> Can be accessed through Instantiation                          *
+   *     L   -> Can be accessed through Functional Inference with VHDL only    *
+   *     M   -> For Module Compiler only                                       *
+   *     O   -> Can be accessed through Operator Inference                     *
+   *     V   -> VMT model                                                      *
+   *     W   -> OpenVera Compliant                                             *
+   *     #   -> Only synthesizable models available                            *
+   *     @   -> Obsolete DesignWare Foundation components                      *
+   *                                                                           *
+   *****************************************************************************
+
+
+
+
+   *****************************************************************************
+   * Component Name       *  Implementation    *  Description                  *
+   *****************************************************************************
+   ********************************
+   * Logic Combinatorial Family   *
+   ********************************
+IF | DW01_binenc          | str                | Binary Encoder | logic combinational binary encoder enc encoders
+IF | DW01_bsh             | mx2,mx2i,mx4,mx8   | Barrel Shifter| logic combinational shifter shift barrel
+IF | DW01_decode          | str                | Decoder| logic combinational decode decoder
+I  | DW01_mux_any         | str                | Universal Multiplexer| logic combinational mux multiplexer multiplexor 
+IF | DW01_prienc          | str                | Priority Encoder| logic combinational priority enc encoder
+
+   ********************************| 
+   * Logic Sequential Family      *
+   ********************************
+I  | DW03_bictr_dcnto     | str                | Up/Down Binary Counter with Dynamic Count-to Flag |logic sequential counter up down binary dynamic counters
+I  | DW03_bictr_scnto     | str                | Up/Down Binary Counter with Static Count-to Flag|logic sequential counter up down  binary static count counters
+I  | DW03_bictr_decode    | str                | Up/Down Binary Counter with Output Decode |logic sequential counter up down binary decode count counters
+I  | DW03_lfsr_dcnto      | str                | LFSR Counter with Dynamic Count-to Flag |logic sequential lfsr counter dynamic count counters
+I  | DW03_lfsr_scnto      | str                | LFSR Counter with Static Count-to Flag |logic sequential lfsr counter count static counters 
+I  | DW03_lfsr_load       | str                | LFSR Counter with Loadable Input |logic sequential lfsr counter count load counters
+I  | DW03_lfsr_updn       | str                | LFSR Up/Down Counter |logic sequential lfsr counter count counters
+I  | DW03_updn_ctr        | rpl,cla,clf        | Up/Down Counter |logic sequential counter up down up/down up-down count counters
+I  | DW_dpll_sd           | rpl,cla            | Digital Phase Locked Loop with static divisor |data recovery separator separation serial logic sequential
+   ********************************
+   * Math Arithmetic Family       *
+   ********************************
+IF | DW_bin2gray          | str                | Binary to Gray Converter |logic combinational binary gray grey encoder converter
+IF | DW_gray2bin          | rpl,cla            | Gray to Binary Converter |logic combinational binary gray grey decoder converter
+IF | DW_inc_gray          | rpl,cla            | Gray Incrementer |logic combinational gray grey incrementer
+IF | DW_cntr_gray         | rpl,cla            | Gray Counter |logic sequential gray grey counter
+IF | DW01_absval          | rpl,cla,clf        | Absolute Value |math arithmetic absolute value positive absval  
+IO | DW01_add             | rpl,bk,cla,clf,csm,rpcs | Adder|math arithmetic adder add sum adders +  
+IO | DW01_sub             | rpl,bk,cla,clf,csm,rpcs | Subtractor|math arithmetic subtractor subtractors sub -  
+IO | DW01_addsub          | rpl,bk,cla,clf,csm,rpcs | Adder-Subtractor|math arithmetic adder subtractor add adders sub sum addsub+ -  
+I  | DW_addsub_dx         | rpl,rpcs,csm       | Duplex Adder-Subtractor with Saturation and Rounding|math arithmetic adder subtractor add adders sub sum addsub + -  
+IF | DW01_ash             | mx2,mx2i,mx4,mx8   | Arithmetic Shifter|math arithmetic shifter arithmetic shift shifters >>  
+IO | DW01_cmp2            | rpl,bk,cla         | 2-Function Comparator|math arithmetic comparator compare comp cmp comparators < > = !
+I  | DW01_cmp6            | rpl,bk,cla         | 6-Function Comparator|math arithmetic comparator compare comp cmp comparators < > = !
+I  | DW_cmp_dx            | rpl,bk             | Duplex Comparator|math arithmetic compare comparator duplex cmp < > = !
+IF | DW_shifter           | mx2,mx2i,mx4,mx8   | Combined Arithmetic and Barrel Shifter|math arithmetic shifter shift barrel shifters << >>  
+IO | DW01_inc             | rpl,cla,clf        | Incrementer|math arithmetic incrementer incrementers incrementor inc +  
+IO | DW01_dec             | rpl,cla,clf        | Decrementer|math arithmetic decrementer decrementor dec decrement - 
+IO | DW01_incdec          | rpl,cla,clf        | Incrementer-Decrementer|math arithmetic incrementer incrementor incrementers decrementer decrementor decrementers inc dec +	
+IO | DW01_csa             | str                | Carry Save Adder|math arithmetic adder carry save summation tree        
+I  | DW01_satrnd          | str                | Arithmetic Saturation and Rounding Logic|math arithmetic rounder sat round rounding saturation
+IF | DW_minmax            | cla,clas           | Minimum/Maximum Value|math arithmetic minimum maximum totals carry lookahead           
+IF | DW02_mac             | csa, wall          | Multiplier-Accumulator|math arithmetic multiplier accumulator multipliers mult mac * +
+I  | DW02_tree            | wallace            | Wallace Tree Compressor|math arithmetic compressor wallace tree adder multipliers summation
+IGO| DW02_mult            | csa, wall, nbw     | Multiplier|math arithmetic multiplier multipliers mult *
+I  | DW02_multp           | wall, nbw          | Partial Product Multiplier|math arithmetic partial product multiplier multipliers * multp
+IB | DW02_mult_2_stage    | csa, str           | Two-Stage Pipelined Multiplier|math arithmetic multiplier multipliers pipeline mult *  
+IB | DW02_mult_3_stage    | csa, str           | Three-Stage Pipelined Multiplier|math arithmetic multiplier multipliers pipeline mult *
+IB | DW02_mult_4_stage    | csa, str           | Four-Stage Pipelined Multiplier|math arithmetic multiplier multipliers pipeline mult *  
+IB | DW02_mult_5_stage    | csa, str           | Five-Stage Pipelined Multiplier|math arithmetic multiplier multipliers pipeline mult  
+IB | DW02_mult_6_stage    | csa, str           | Six-Stage Pipelined Multiplier|math arithmetic multiplier multipliers pipeline mult *
+I  | DW_mult_dx           | wall               | Duplex Multiplier|math arithmetic duplex multiplier multiply multiplication
+IF | DW02_sum             | rpl,csa, wallace   | Vector Adder|math arithmetic sum vector boa trasform csa
+I  | DW02_prod_sum        | csa, wall, nbw     | Generalized Sum of Products|math arithmetic add adders sum product boa trasform csa
+I  | DW02_prod_sum1       | csa, wall, nbw     | Multiplier-Adder|math arithmetic multipliers adder mult mac sum product boa trasform csa *	
+IF | DW_square            | wall               | Integer Square|math arithmetic square squarer mult *
+I  | DW_squarep           | wall               | Partial Product Integer Squarer|math arithmetic partial products squarer squarep *      
+IF | DW_div               | rpl,cla,cla2       | Combinational Divider/Remainder/Modulus|math arithmetic divider quotient remainder  modulus / % 
+I | DW_div_sat           | cla,cla2,cla3      | Combinational Divider with Saturation|math arithmetic divider with saturation quotient 
+IF | DW_sqrt              | rpl,cla            | Combinational Square Root|math arithmetic square root sqrt ^
+I  | DW_div_pipe          | str                | Stallable pipelined Divider
+I  | DW_mult_pipe         | str                | Stallable pipelined Multiplier
+I  | DW_sqrt_pipe         | str                | Stallable pipelined Square Root
+I  | DW_prod_sum_pipe     | str                | Stallable pipelined Generalized Sum of Products
+
+   ********************************|
+   * Math Sequential Family      *
+   ********************************
+I  | DW_div_seq           | cpa                | Sequential Divider
+I  | DW_mult_seq          | cpa                | Sequential Multiplier
+I  | DW_sqrt_seq          | cpa                | Sequential SquareRoot
+
+   ********************************
+   * Math Trignometry Family      *
+   ********************************
+IF | DW02_sin             | str                | Combinational Sine|math trignometric sine sin
+IF | DW02_cos             | str                | Combinational Cosine|math trignometric cosine cos
+IF | DW02_sincos          | str                | Combinational Sine - Cosine|math trignometric sine cosine sin cos sincos
+
+   ********************************
+   * Memory Register Family       *
+   ********************************
+I  | DW03_pipe_reg        | str                | Pipeline Register| memory register registers pipeline reg
+I  | DW03_reg_s_pl        | str,mbstr          | Register with Synchronous Enable Reset|memory register reset synchronous 
+I  | DW03_shftreg         | str                | Shift Register|memory Register memory register register registers shift reg
+I  | DW04_shad_reg        | str                | Shadow and Multibit Register|memory register registers shadow multibit reg
+   ********************************
+   * Memory Synchronous RAM Family*
+   ********************************
+I  | DW_ram_rw_s_dff      | str                | Synchronous Single-Port, Read/Write RAM (Flip-Flop Based)|memory Synchronous ram mem srams sram synchronous flip-flop 
+I  | DW_ram_rw_s_lat      | str                | Synchronous Single-Port, Read/Write RAM (Latch-Based)| memory synchronous ram mem srams sram ram synchronous latch 
+I  | DW_ram_r_w_s_dff     | str                | Synchronous Write-Port, Asynchronous Read-Port RAM (Flip-Flop Based)|memory synchronous ram srams mem sram ram flip-flop
+I  | DW_ram_r_w_s_lat     | str                | Synchronous Write-Port, Asynchronous Read-Port RAM (Latch-Based)|memory synchronous ram mem srams sram ram latch sync
+I  | DW_ram_2r_w_s_dff    | str                | Synchronous Write-Port, Asynchronous Dual Read-Port RAM (Flip-Flop Based)| memory synchronous ram mem srams sram ram flip-flop 
+I  | DW_ram_2r_w_s_lat    | str                | Synchronous Write-Port, Asynchronous Dual Read-Port RAM (Latch-Based)|memory synchronous ram mem memory srams sram ram latch 
+   *********************************
+   * Memory Asynchronous RAM Family*
+   *********************************
+I  | DW_ram_rw_a_dff      | str                | Asynchronous Single-Port RAM (Flip-Flop Based)|memory asynchronous ram memory srams mem sram ram flip-flop
+I  | DW_ram_rw_a_lat      | str                | Asynchronous Single-Port RAM (Latch-Based)|memory asynchronous ram memory srams mem memory sram ram latch
+I  | DW_ram_r_w_a_dff     | str                | Asynchronous Dual-Port RAM (Flip-Flop Based)|memory asynchronous ram memory mem srams sram ram flip-flop
+I  | DW_ram_r_w_a_lat     | str                | Asynchronous Dual-Port RAM (Latch-Based)|memory asynchronous ram memory mem srams sram ram latch
+I  | DW_ram_2r_w_a_dff    | str                | Asynchronous Three-Port RAM (Flip-Flop Based)|memory asynchronous ram memory srams mem sram ram flip-flop
+I  | DW_ram_2r_w_a_lat    | str                | Asynchronous Three-Port RAM (Latch-Based)|memory asynchronous ram memory srams mem sram ram latch
+
+   *********************************
+   * Memory FIFO Family            *
+   *********************************
+I  | DW_fifo_s1_df        | rpl,cl1,cl2        | Synchronous (Single Clock) FIFO with Dynamic Flags | memory fifo mem fifos controllers synchronous synch
+I  | DW_fifo_s1_sf        | rpl,cl1,cl2        | Synchronous (Single Clock) FIFO with Static Flags | memory fifo mem fifos controllers  synchronous synch
+I  | DW_asymfifo_s1_sf    | rpl,cl1,cl2        | Asymmetric I/O Synchronous (Single Clock) FIFO with Static Flags | memory fifo asym asymmetric fifos static
+I  | DW_asymfifo_s1_df    | rpl,cl1,cl2        | Asymmetric I/O Synchronous (Single Clock) FIFO with Dynamic Flags | memory fifo asym asymmetric fifos dynamic
+I  | DW_fifo_s2_sf        | rpl,cl2            | Synchronous (Dual Clock) FIFO  with Static Flags | memory fifo mem fifos controllers dual clock static
+I  | DW_asymfifo_s2_sf    | rpl,cl2            | Asymmetric Synchronous (Dual Clock) FIFO  with Static Flags | memory fifo asym asymmetric static dual clock 
+
+   *********************************
+   * Memory FIFO Controller Family *
+   *********************************
+I  | DW_fifoctl_s1_df     | rpl,cl1,cl2        | Synchronous (Single Clock) FIFO Controller with Dynamic Flags |memory fifo controller mem fifos controllers synchronous synch ctrl
+I  | DW_fifoctl_s1_sf     | rpl,cl1,cl2        | Synchronous (Single Clock) FIFO Controller with Static Flags|memory fifo controller mem fifos ontrollers synchronous synch ctrl
+I  | DW_asymfifoctl_s1_sf | rpl,cl1,cl2        | Asymmetric I/O Synchronous (Single Clock) FIFO Controller with Static Flags|memory fifo controller asym asymmetric fifos static ctrl
+I  | DW_asymfifoctl_s1_df | rpl,cl1,cl2        | Asymmetric I/O Synchronous (Single Clock) FIFO Controller with Dynamic Flags|memory fifo controller asym asymmetric fifo fifos dynamic ctrl
+I  | DW_fifoctl_s2_sf     | rpl,cl2            | Synchronous (Dual Clock) FIFO COntroller with Static Flags|memory fifo controller mem fifos controllers synchronous synch ctrl
+I  | DW_asymfifoctl_s2_sf | rpl,cl2            | Asymmetric Synchronous (Dual Clock)FIFO Controller  with Static Flags|memory fifo controller dual clock asymmetric ctrl
+I  | DW_llfifocntl_s1_df  | str                | Synchronous Linked-List FIFO Controller with Dynamic Flags|memory fifo controller asym asymmetric static flag dual clock synchronous ctrl
+
+   *********************************
+   * Memory Stack Family           *
+   *********************************
+I  | DW_stack             | rpl,cl2            | Synchronous (Single Clock) Stack |memory stack stacks lifo
+I  | DW_stackctl          | rpl,cl2            | Synchronous (Single Clock) Stack Controller|memory stack memory stacks stack controller ctrl
+
+   **************************************
+   * App. Specific Group Coding Family  *
+   **************************************
+I  | DW_8b10b_dec         | rtl                | 8b/10b Decoder |application coding decode DC encoding 8b10b
+I  | DW_8b10b_enc         | rtl                | 8b/10b Encoder |application coding encodes DC encoding  8b10b
+I  | DW_8b10b_unbal       | rtl                | 8b/10b Coding Balance Predictor |application coding balance predictor flip disparity predicts 8b10b
+   **************************************
+   * App. Specific Data Integrity Family*
+   **************************************
+I  | DW_crc_p             | str                | Universal Parallel (Combinational) CRC Generator/Checker | application data integrity crc checker redundancy generator
+I  | DW_crc_s             | str                | Universal Synchronous (Clocked) CRC Generator/Checker |application data integrity crc redundancy generator checker    
+I# | DW_ecc               | str                | Error Checking and Correction |application data integrity error checking correction ecc edac
+IL | DW04_par_gen         | str                | Parity Generator and Checker | application data integrity parity generator checker pargen
+I  | DW_fifo_2c_df        | rtl                | Two clock FIFO
+
+   **************************************
+   * Control Logic Family               *
+   **************************************
+I  | DW_arbiter_2t	  | cla,clas           | Two-Tier Arbiter with Dynamic/Fair-Among-Equal Scheme |control logic priority dynamic/fair-among-equal arbitration
+I  | DW_arbiter_dp	  | cla,clas           | Arbiter with Priority Scheme |control logic priority dynamic arbitration
+I  | DW_arbiter_fcfs	  | cla,clas            | Arbiter with First-Come-First-Served Priority Scheme |control logic first-come-first-served priority arbitration
+I  | DW_arbiter_sp	  | rpl,cla            | Arbiter with Static Priority Scheme |control logic priority static arbitration
+
+   **************************************
+   * App. Specific Interface Family     *
+   **************************************
+I# | DW_debugger          | str                | On-Chip ASCII Debugger | application interface debugger breakpoint embedded debug probe probing 
+I# | DW_16550             | rtl                | Universal Asynchronous Receiver/Transmitter | application interface 16550 16450 uart receiver transmitter asynchronous
+IC#| DWPCI                | rtl                | 32/64 bit 33/66 MHz PCI Core | application interface macrocell pci
+IC#| DW_pcix              | rtl                | 32/64 bit 133 MHz PCIX Core | application interface macrocell pci pcix
+IC#| DW_usbd              | rtl                | USB 2.0 Device Controller Core (includes Design Views for Gain Transceiver)| application interface macrocell usb2.0 phy dw_usb utmi star ip gt3000 gt3100 gt3200 3000 3100 3200
+   * IC#| DW_membist           | rtl                | Embedded Memory BIST Controller Core | memory bist macrocell rom ram embedded test membist
+IC#| DW_rambist           | rtl                | Embedded Memory BIST Controller Core | memory bist macrocell rom ram embedded test membist
+IC#| DW_memctl            | rtl                | Memory Controller Core | memory controller macrocell sdram sram ssram flash eprom rom fcram dynamic static amba ahb ocb
+IC#| DW_C166S             | rtl                | 16 bit processor from Infineon | star ip macrocell infineon c166s infineon c166s c166 166s 166 dw_c166S realtime real-time 16-bit microcontroller micro microprocessor processor
+IC#| DW_MIPS4KE           | rtl                | Processor Core Family from MIPS | star ip macrocell 4ke 4kep 4kem 4kec dw_mips4ke dw_mips dw_4ke 32-bit microprocessor micro processor
+
+
+   **************************************
+   * App. Specific Processor Family     *
+   **************************************
+IC#| DW8051               | rtl                | 8-bit Micro Controller | application macrocell micro controller embedded micro controller 8051
+
+   **************************************
+   * AMBA                               *
+   **************************************
+IC | DW_apb               | rtl                | ARM AMBA 2.0 APB Bus IP | arm amba apb ocb
+IC | DW_ahb               | rtl                | ARM AMBA 2.0 AHB Bus IP | arm amba ahb ocb
+IC | DW_amba_ictl         | rtl                | ARM AMBA 2.0 Interrupt Controller | arm amba apb ocb interrupt controller
+IC | DW_apb_uart          | rtl                | ARM AMBA 2.0 APB UART | arm amba apb ocb uart 16550
+IC | DW_apb_rap           | rtl                | ARM AMBA 2.0 APB Remap & Pause | arm amba apb ocb remap pause
+IC | DW_apb_timers        | rtl                | ARM AMBA 2.0 APB Timer | arm amba apb ocb timer
+IC | DW_apb_gpio          | rtl                | ARM AMBA 2.0 APB GPIO | arm amba apb ocb gpio general purpose i/o
+VW | ahb_master_vmt       | vmt                | ARM AMBA 2.0 AHB Master | arm amba ahb ocb master
+VW | ahb_slave_vmt        | vmt                | ARM AMBA 2.0 AHB Slave | arm amba ahb ocb slave
+VW | ahb_monitor_vmt      | vmt                | ARM AMBA 2.0 AHB Monitor | arm amba ahb ocb monitor
+VW | apb_master_vmt       | vmt                | ARM AMBA 2.0 APB Master | arm amba apb ocb master
+VW | apb_slave_vmt        | vmt                | ARM AMBA 2.0 APB Slave | arm amba apb ocb slave
+VW | apb_monitor_vmt      | vmt                | ARM AMBA 2.0 APB Monitor | arm amba apb ocb monitor
+
+   **************************************
+   * App. Specific JTAG Family          *
+   **************************************
+I  | DW_tap               | str                | TAP Controller | application jtag test tap controller board boundary
+I  | DW_bc_1              | str                | Boundary Scan Cell Type BC_1 |application jtag boundary scan cell board test bc        
+I  | DW_bc_2              | str                | Boundary Scan Cell Type BC_2 |application jtag boundary scan cell board test bc 
+I  | DW_bc_3              | str                | Boundary Scan Cell Type BC_3 |application jtag boundary scan cell board test bc        
+I  | DW_bc_4              | str                | Boundary Scan Cell Type BC_4 |application jtag boundary scan cell board test bc         
+I  | DW_bc_5              | str                | Boundary Scan Cell Type BC_5 |application jtag boundary scan cell board test bc        
+I  | DW_bc_7              | str                | Boundary Scan Cell Type BC_7 |application jtag boundary scan cell board test bc        
+   **************************************
+   * Floating Point Family              *
+   **************************************
+FM | DW_add_fp            | arch0              | Floating Point Adder (Module Compiler Only) |floating point module compiler mc add point sum add +
+FM | DW_mult_fp           | arch0              | Floating Point Multiplier (Module Compiler Only) |floating point module compiler mc multiply product mult *
+FM | DW_flt2i_fp          | arch0              | Floating Point to Integer Converter (Module Compiler Only) |floating point module compiler mc converter flt2i   
+FM | DW_i2flt_fp          | arch0              | Integer to Floating Point Converter (Module Compiler Only) |floating point module compiler mc converter i2flt
+FM | DW_cmp_fp            | arch0              | Floating Point Comparator (Module Compiler Only) |floating point module compiler mc compare comp < > = !
+
+
+   **************************************
+   * Obsolete Components                *
+   **************************************
+I@  | DW03_cntr_gray       | str                | Gray Code Counter |logic sequential counter gray count counters
+I@ | DW02_divide          | rpl,bla            | Combinational Divider | obsolete
+I@ | DW_div_rem           | rpl,bla            | Combinational Divider with Quotient and Remainder | obsolete
+I@ | DW02_mod             | rpl,bla            | Obsolete Modulus | obsolete
+I@F| DW02_rem             | rpl,bla            | Combinational Remainder | obsolete
+I@F| DW_ver_mod           | rpl,bla            | Combinational Modulus for Verilog LRM | obsolete
+I@F| DW_vhd_mod           | rpl,bla            | Combinational Modulus for VHDL LRM | obsolete
+I@#| DW02_mult2           | wall               | Obsolete Parital products multiplier | obsolete
+I@F| DW02_sqrt            | rpl                | Combinational Square Root | obsolete
+I@ | DW03_stack           | dff,lat            | Obsolete stack | obsolete 
+I@ | DW03_ram1_a_d        | str                | Obsolete RAM | obsolete
+I@ | DW03_ram1_a_l        | str                | Obsolete RAM | obsolete
+I@ | DW03_ram1_a_ul       | str                | Obsolete RAM | obsolete
+I@ | DW03_ram1_s_d        | str                | Obsolete RAM | obsolete
+I@ | DW03_ram1_s_l        | str                | Obsolete RAM | obsolete
+I@ | DW03_ram1_s_ul       | str                | Obsolete RAM | obsolete
+I@ | DW03_ram2_a_d        | str                | Obsolete RAM | obsolete
+I@ | DW03_ram2_a_l        | str                | Obsolete RAM | obsolete
+I@ | DW03_ram2_a_ul       | str                | Obsolete RAM | obsolete
+I@ | DW03_ram2_s_d        | str                | Obsolete RAM | obsolete
+I@ | DW03_ram2_s_l        | str                | Obsolete RAM | obsolete
+I@ | DW03_ram2_s_ul       | str                | Obsolete RAM | obsolete
+I@ | DW03_fifo_a_sf       | dff,lat            | Asynchronous FIFO with Static Flag Logic | obsolete
+I@ | DW03_fifo_a_df       | dff,lat            | Asynchronous FIFO with Dynamic Flag Logic | obsolete
+I@ | DW03_fifo_s_sf       | dff,lat            | Synchronous with Static Flags | obsolete
+I@ | DW03_fifo_s_df       | dff,lat            | Synchronous with Dynamic Flags | obsolete
+I@ | DW03_fifocntl_a_sf   | str                | Asynchronous with Static Flag Logic | obsolete
+I@ | DW03_fifocntl_a_df   | str                | Asynchronous with Dynamic Flag Logic |obsolete
+I@#| DW03_regfile_sync_dff| str                | Synchronous Register | Obsolete | obsolete
+I@#| DW03_regfile_sync_par_dff| str            | Synchronous Register parallel output | obsolete
+   ******************************************************************************

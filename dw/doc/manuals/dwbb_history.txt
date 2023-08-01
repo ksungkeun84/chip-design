@@ -1,0 +1,197 @@
+#ComponentName	ReleaseName	Type	STAR	Classification	Description
+DW_ram_r_w_2c_dff	O-2018.06-SP3	Enhancement	9001406396	Sim and Synth	Request to make DW_ram_r_w_2c_dff available as a main component
+DW_fp_div_seq	N-2017.09-SP5-4	Bug	9001366623	Simulation	Verilog simulation model has illegal register definition
+DW_fir_seq	N-2017.09-SP5-4	Bug	9001396239	Simulation	Verilog simulation models contain SV constructs
+DW_8b10b_dec	N-2017.09-SP5-4	Bug	9001396239	Simulation	Verilog simulation models contain SV constructs
+DW_asymfifo_s2_sf	N-2017.09-SP5-4	Bug	9001390667	Simulation	Verilog simulation model has syntax error
+DW_exp2	O-2018.06-SP1	Bug	9001366625	Simulation	Datasheet missing width limits on simulation model for VHDL and non-VCS simulators
+DW_fp_exp	O-2018.06-SP1	Bug	9001366625	Simulation	Datasheet missing width limits on simulation model for VHDL and non-VCS simulators
+DW_fp_exp2	O-2018.06-SP1	Bug	9001366625	Simulation	Datasheet missing width limits on simulation model for VHDL and non-VCS simulators
+DW_fp_div_seq	O-2018.06-SP1	Bug	9001366623	Simulation	Verilog simulation model has a variable of type reg but is used as if it is of type wire, which causes a syntax error in a non-SystemVerilog context
+DW_exp2	O-2018.06-SP1	Bug	9001341564	Simulation	VHDL simulation model has variable that is never used
+DW_ln	O-2018.06-SP1	Bug	9001341564	Simulation	VHDL simulation model has variable that is never used
+DW_log2	O-2018.06-SP1	Bug	9001341564	Simulation	VHDL simulation model has variable that is never used
+DW_asymdata_inbuf	N-2017.09-SP5	Bug	9001317257	Sim and Synth	Expand the supported width to better fit related components
+DW_asymdata_outbuf	N-2017.09-SP5	Bug	9001317257	Sim and Synth	Expand the supported width to better fit related components
+DW_asymfifo_s2_sf	N-2017.09-SP5	Bug	9001317257	Sim and Synth	Expand the supported width and depth to better fit related components
+DW_fifo_s2_sf	N-2017.09-SP5	Bug	9001317257	Sim and Synth	Expand the supported width and depth to better fit related components
+DW_fp_ln	N-2017.09-SP5	Bug	9001308455	Sim and Synth	Upper bound of extra_prec is incorrect, both in the sldb and the datasheet
+DW_fp_dp2	N-2017.09-SP4	Bug	9001298598	Sim and Synth	The huge status flag is not set for an overflow condition when the rounding mode is 1, 2, or 3
+DW_fp_mac	N-2017.09-SP4	Bug	9001298598	Sim and Synth	The huge status flag is not set for an overflow condition when the rounding mode is 1, 2, or 3
+DW_fp_sum3	N-2017.09-SP4	Bug	9001298598	Sim and Synth	The huge status flag is not set for an overflow condition when the rounding mode is 1, 2, or 3
+DW_fp_sum4	N-2017.09-SP4	Bug	9001298598	Sim and Synth	The huge status flag is not set for an overflow condition when the rounding mode is 1, 2, or 3
+DW_div_seq	N-2017.09-SP4	Bug	9001296230	Simulation	Register output is not recovered by async reset after UPF power up in an NLP simulation
+DW_lza	N-2017.09-SP4	Bug	9001242906	Synthesis	In the datasheet, the example of functional inference is incorrect
+Library	N-2017.09-SP4	Bug	9001214579	Synthesis	DC generates an empty netlist without any warnings or errors when you use set_implementation to force DC to use an illegal implementation
+Library support scripts	N-2017.09-SP-3	Bug	9001205061	Synthesis	Getting CMD- messages from DWBB designs when using UPF compatibility mode in DC
+DW_asymfifo_s2_sf	N-2017.09-SP-2	Enhancement	9001026675	Simulation	Added the ability to inject random missamples for clock domain crossings (applies only for Verilog simulation models)
+DW_asymfifoctl_s2_sf	N-2017.09-SP-2	Enhancement	9001026675	Simulation	Added the ability to inject random missamples for clock domain crossings (applies only for Verilog simulation models)
+DW_fifo_s2_sf	N-2017.09-SP-2	Enhancement	9001026675	Simulation	Added the ability to inject random missamples for clock domain crossings (applies only for Verilog simulation models)
+DW_fifoctl_s2_sf	N-2017.09-SP-2	Enhancement	9001026675	Simulation	Added the ability to inject random missamples for clock domain crossings (applies only for Verilog simulation models)
+DW_fp_div_seq	M-2016.12-SP5-2	Bug	9001121224	Sim and Synth	The "complete" signal is asserted 1 clock earlier (or de-asserted 1 clock later) than expected
+DW_fp_div_seq	M-2016.12-SP5-2	Bug	9001251699	Sim and Synth	A change on "rnd" affects rounding results 1 cycle earlier 
+DW_div_seq	M-2016.12-SP5-1	Bug	9001112685	Synthesis	Incorrect synthesis results with an overflow condition when tc_mode = 1
+DW_ecc	M-2016.12-SP5-1	Bug	9001217597	Simulation	The Verilog simulation model causes an error in VCS NLP Low Power Simulation flow
+DW_fp_div	M-2016.12-SP5	Bug	9001189734	Synthesis	The str implementation produces incorrect results for some configurations
+DW_fp_div	M-2016.12-SP5	Bug	9001210054	Sim and Synth	Incorrect results when b is a denormal number for some configurations
+DW_fp_exp	M-2016.12-SP5	Bug	9001204304	Simulation	VHDL simulation model for DW_fp_exp does not run due to array size mismatch
+DWF_dp_mult_comb_ovfldet	M-2016.12-SP5	Bug	9001170509	Simulation	Missing port direction in DWF_dp_mult_comb_ovfldet VHDL simulation model
+DW_fifoctl_2c_df	M-2016.12-SP5	Bug	9001209980	Documentation	Datasheet error with the size of the wr_addr_s port
+DW_data_sync	M-2016.12-SP4	Bug	9001209980	Documentation	Inaccurate timing waveforms in datasheet
+DW_ram_rw_s_dff	M-2016.12-SP4	Enhancement		Synthesis	The implementation, "rtl", replaces the obsolete implementation, "str".
+DW_ram_r_w_s_dff	M-2016.12-SP4	Enhancement		Synthesis	The implementation, "rtl", replaces the obsolete implementation, "str".
+DW_ram_rw_a_dff	M-2016.12-SP4	Enhancement		Synthesis	The implementation, "rtl", replaces the obsolete implementation, "str".
+DW_ram_r_w_a_dff	M-2016.12-SP4	Enhancement		Synthesis	The implementation, "rtl", replaces the obsolete implementation, "str".
+DW_ram_2r_w_s_dff	M-2016.12-SP4	Enhancement		Synthesis	The implementation, "rtl", replaces the obsolete implementation, "str".
+DW_ram_2r_w_a_dff	M-2016.12-SP4	Enhancement		Synthesis	The implementation, "rtl", replaces the obsolete implementation, "str".
+DW_fp_ln	M-2016.12-SP3	Enhancement	9001116007	Sim and Synth	DW_fp_ln does not support divide-by-zero status flag
+DW_fp_div	M-2016.12-SP3	Bug	9001121180	Synthesis	The str implementation with #(52, 11, 0/1) has larger than 1 ulp error
+DW_fp_dp3	M-2016.12-SP3	Bug	9001123397	Sim and Synth	Synthesis model provides incorrect results for certain configurations
+DW_fp_div	M-2016.12-SP3	Bug	9001167381	Sim and Synth	Produces tiny and huge status bit errors as well as an output z error at minnorm and maxnorm.
+DW_tap	M-2016.12-SP2	Bug	9001134192	Synthesis	Redundant clock logic
+DW_tap_uc	M-2016.12-SP2	Bug	9001134192	Synthesis	Redundant clock logic
+DW_asymfifoctl_2c_df	M-2016.12-SP2	Enhancement	9001152809	Sim and Synth	Support clk_ratio=0 to allow arbitrary clock relationships
+DW_fifo_2c_df	M-2016.12-SP2	Enhancement	9001152809	Sim and Synth	Support clk_ratio=0 to allow arbitrary clock relationships
+DW_fifoctl_2c_df	M-2016.12-SP2	Enhancement	9001152809	Sim and Synth	Support clk_ratio=0 to allow arbitrary clock relationships
+DW_sync	M-2016.12-SP1	Bug	9001106160	Synthesis	Preferred sync cells are not correctly mapped for multi-stage synchronizers
+Floating-point components	M-2016.12-SP1	Enhancement	9001120644	Documentation	Floating-point Overview update needed to clarify NaN behavior
+DW_fp_square	M-2016.12-SP1	Bug	9001121118	Synthesis	Synthesis model sometimes shows an incorrect result when sig_width = 52
+DW_squarep	M-2016.12-SP1	Enhancement	9001128623	Simulation	Change of the default value of verif_en parameter (from '1' to '2')
+DW02_multp	M-2016.12-SP1	Enhancement	9001128623	Simulation	Change of the default value of verif_en parameter (from '1' to '2')
+DW_ecc	M-2016.12-SP1	Enhancement	9001134170	Sim and Synth	Reduce lower limit of width parameter from 8 to 4
+DW_fp_log2	L-2016.03-SP5	Bug	9001082385	Sim and Synth	Result for log2(-0) and log2(+0) incorrect
+DW_ecc	L-2016.03-SP5	Bug	9001097173	Simulation	DW_ecc_function.inc unusable due to semantic error
+DW_norm_rnd	L-2016.03-SP5	Bug	9001102004	Simulation	VCS warning/error when a_width = b_width (VHDL models)
+DW_norm_rnd	L-2016.03-SP4	Bug	9000999112	Simulation	Lint error in DW_norm_rnd
+DW_fp_flt2i	L-2016.03-SP4	Bug	9001069342	Documentation	Datasheet needs info for input=-Inf
+DW_tap	L-2016.03-SP4	Bug	9001077028	Simulation	Zero time race condition with sync_mod=1
+DW_tap_uc	L-2016.03-SP4	Bug	9001077028	Simulation	Zero time race condition with sync_mod=1
+DW01_binenc	L-2016.03-SP3	Bug	9001048364	Synthesis	False error message during DC elaboration of DW01_binenc 'cla' implementation when width=1
+DW_fp_div	L-2016.03-SP3	Bug	9001048917	Sim and Synth	The str implementation has a 1 ulp error when rnd = 1, 2, or 3
+DW_fp_div	L-2016.03-SP3	Bug	9001058879	Sim and Synth	Incorrect inexact status flag from str implementation when faithful_round = 0
+DW_dct_2d	L-2016.03-SP3	Bug	9001068856	Sim and Synth	When the 'enable' input is set low during calculation, data corruption occurs
+DW_reset_sync	L-2016.03-SP2	Bug	9000896107	Sim and Synth	DW_fifoctl_2c_df encounters false errors during clearing sequence caused by DW_reset_sync inside (defect also affects DW_asymfifoctl_2c_df,  DW_fifo_2c_df and DW_stream_sync)
+Sequential components	L-2016.03-SP2	Bug	9000948184	Synthesis	Design Compiler is unable to control multi-bit mapping and synchronous set/reset of F/Fs within DesignWare components when DesignWare cache is enabled; affects all sequential DWBB components.
+DW_fp_sincos	L-2016.03-SP2	Bug	9001002086	Simulation	DW_fp_sincos simulation models are not properly ignoring err_range when pi_multiple = 0
+DW_stream_sync	L-2016.03-SP2	Enhancement		Simulation	The Verilog simulation model was modified to comply with a planned release of the VCS NLP power modeling simulation flow
+DW_crc_s	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_crc_s	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_fir_seq	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_fir	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_8b10b_dec	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_8b10b_enc	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_wc_d1_s	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_wc_s1_s	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_mult_seq	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_fifoctl_s2dr_sf	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_dct_2d	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_div_seq	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_sqrt_seq	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_stream_sync	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_bc_1	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_bc_2	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_bc_3	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_bc_4	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_bc_5	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_bc_7	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_asymfifoctl_s1_sf	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_asymfifoctl_s2_sf	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW03_bictr_decode	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_fp_div_seq	L-2016.03-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_tap	L-2016.03-SP1	Bug	9000999057	Simulation	Verilog simulation model for DW_tap_uc (and DW_tap) not fully compatible with VCS-NLP
+DW_tap_uc	L-2016.03-SP1	Bug	9000999057	Simulation	Verilog simulation model for DW_tap_uc (and DW_tap) not fully compatible with VCS-NLP
+Library (for FPGA)	L-2016.03-SP1	Bug	9001002086	Synthesis	Corrects corrupted FPGA IP file (which affects the ZeBu product as well as FPGA synthesis tools and FM for FPGA)
+DW_fp_ln	K-2015.06-SP5	Bug	9000854445	Sim and Synth	The value of log2(-0) is being delivered as 'invalid' (or NaN) when the correct output should be negative infinity
+DW_fp_mult	K-2015.06-SP5	Bug	9000983334	Sim and Synth	The DW_fp_mult produces incorrect results without denormals for few configurations
+DW_fp_log2 	K-2015.06-SP5	Bug	9000984209	Sim and Synth	The value of log2(-0) is being delivered as 'invalid' (or NaN) when the correct output should be negative infinity
+DW03_updn_ctr	K-2015.06-SP5	Bug	9000986633	Synthesis	A large number of DW03_updn_ctr instances causes long runtime
+DW_pulse_sync	K-2015.06-SP5	Enhancement	9000609524	Documentation	The datasheet for DW_pulse_sync needs to be updated (timing diagram)
+DW_fp_exp	K-2015.06-SP4	Bug	9000972181	Synthesis	DC fails to elaborate DW_fp_exp when exp_width + sig_width + 1 > 62
+DW_fp_mac	K-2015.06-SP3	Bug	9000920527	Synthesis	The str implementation of DW_fp_mac has a DC fatal for some configurations 
+Several	K-2015.06-SP3	Bug	9000932384	Synthesis	In synthesis, registers that require phase-inversion were not getting mapped to technology cells.
+DW_crc_s	K-2015.06-SP3	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_crc_p	K-2015.06-SP3	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW03_lfsr_updn	K-2015.06-SP3	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW03_lfsr_scnto	K-2015.06-SP3	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW03_lfsr_load	K-2015.06-SP3	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW03_lfsr_dcnto	K-2015.06-SP3	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_asymfifoctl_s1_df	K-2015.06-SP3	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_asymfifoctl_s1_sf	K-2015.06-SP3	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_data_qsync_hl	K-2015.06-SP3	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_ecc	K-2015.06-SP3	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_fp_div_seq	K-2015.06-SP3	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_tap	K-2015.06-SP3	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_tap_uc	K-2015.06-SP3	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_sqrt_seq	K-2015.06-SP2	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_mult_seq	K-2015.06-SP2	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_div_seq	K-2015.06-SP2	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_dpll_sd	K-2015.06-SP2	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_fp_exp2	K-2015.06-SP2	Bug	9000927455	Simulation	DW_fp_exp2 - incorrect values when exponent field size is too small
+DW_fp_exp	K-2015.06-SP2	Bug	9000927859	Simulation	DW_fp_exp - incorrect values when exponent field size is too small
+DW_fp_log2 	K-2015.06-SP2	Bug	9000926897	Synthesis	DW_fp_log2 - invalid sub-component configuration when exponent field is small
+DW_fp_ln	K-2015.06-SP2	Bug	9000927308	Synthesis	DW_fp_ln - invalid sub-component configuration when exponent field is small
+DW_ln	K-2015.06-SP2	Bug	9000926832	Simulation	DW_ln component not working for op_width=60
+DW_fp_square 	K-2015.06-SP2	Bug	9000920528	Synthesis	The DW_fp_square has a DC fatal for some configurations
+DW_ram_r_w_s	K-2015.06-SP1	Enhancement	9000918075	Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_fifoctl_2c_df	K-2015.06-SP1	Enhancement	9000918075	Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_sqrt_pipe	K-2015.06-SP1	Enhancement	9000918075	Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_prod_sum_pipe	K-2015.06-SP1	Enhancement	9000918075	Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_mult_pipe	K-2015.06-SP1	Enhancement	9000918075	Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_div_pipe	K-2015.06-SP1	Enhancement	9000918075	Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_div	K-2015.06-SP1	Enhancement	9000918075	Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_fp_mult	K-2015.06-SP1	Bug	9000915706	Synthesis	DW_fp_mult produces incorrect results for some configurations when the ieee_compliance parameter is 1 
+DW_arb_rr	K-2015.06-SP1	Bug	9000913972	Simulation	DW_arb_rr simulation model behaves incorrectly when enable/mask input signals change
+DW_tap_uc	K-2015.06-SP1	Bug	9000890968	Synthesis	DW_tap_uc fails equivalence check when the id parameter is 1
+DW_fp_sincos	K-2015.06-SP1	Bug	9000921582	Synthesis	DW_fp_sincos has larger than 1 ulp error when the pi_multiple parameter is 0
+DW_sincos	K-2015.06	Bug	9000862271	Synthesis	DW_sincos has values that are larger than 1 ulp error for several configurations
+DW_ln 	K-2015.06	Bug	9000872804	Simulation	DW_ln creates garbled message when op_width exceeds legal range (2 to 60)
+DW_fp_mult	J-2014.09-SP5-2	Bug	9000915706	Synthesis	The DW_fp_mult  module produces incorrect results for certain configurations
+DW_div_seq	J-2014.09-SP5	Bug	9000878133	Simulation	The DW_div_seq_sim.vhd module is not in sync with the modeling of corruption detection in the Verilog version.
+DW_sqrt_seq	J-2014.09-SP4	Bug	9000851903	Simulation	When configured without an input register (in other words, when the parameter input_mode  is set to 0), the Verilog simulation models for components DW_div_seq, DW_mult_seq and DW_sqrt_seq are overly pessimistic in generating error messages based on changes on the operand input(s)
+DW_mult_seq	J-2014.09-SP4	Bug	9000851903	Simulation	When configured without an input register (in other words, when the parameter input_mode  is set to 0), the Verilog simulation models for components DW_div_seq, DW_mult_seq and DW_sqrt_seq are overly pessimistic in generating error messages based on changes on the operand input(s)
+DW_div_seq	J-2014.09-SP4	Bug	9000851903	Simulation	When configured without an input register (in other words, when the parameter input_mode  is set to 0), the Verilog simulation models for components DW_div_seq, DW_mult_seq and DW_sqrt_seq are overly pessimistic in generating error messages based on changes on the operand input(s)
+DW_fp_exp	J-2014.09-SP4	Bug	9000853770	Synthesis	Designs containing instance(s) of DW_fp_exp resulting in INCONCLUSIVE result from Formality.
+DW_8b10b_enc	J-2014.09-SP4	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_8b10b_dec 	J-2014.09-SP4	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_arb_rr	J-2014.09-SP3	Bug	9000628477	Synthesis	Elaboration-time latch inferences observed when synthesizing DW_arb_rr
+DW_exp2 	J-2014.09-SP3	Enhance	9000813521	Simulation	DW_exp2 simulation model does not support op_width range 39-60 (only 2-38). Note: upper range is now support only for Verilog model in Synopsys VCS
+DW_div	J-2014.09-SP3	Bug	9000729139	Synthesis	Modulo operator when using DC command 'set_message_info -id UID-95 -stop_on' causing error (cla, cla2 and cla3 implementations of DW_div)
+DW_fifo_s2_sf	J-2014.09-SP2	Bug	9000731628	Simulation	Incorrect err_mode parameter description on Verilog simulation model for DW_fifo_s2_sf. The datasheet description is correct.
+DW_fifo_s2_sf	J-2014.09-SP2	Bug	9000732052	Simulation	Inconsistant parameter definition in datasheet
+DW_stackctl	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_sqrt_seq	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_sqrt_pipe	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_ram_rw_s_dff	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_ram_r_w_s_dff	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_ram_rw_a_lat	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_ram_r_w_a_lat	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_ram_rw_a_dff	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_ram_r_w_a_dff	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_ram_2r_w_s_dff	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_ram_2r_w_a_lat	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_ram_2r_w_a_dff	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_prod_sum_pipe	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_mult_seq	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_mult_pipe	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_fp_div_seq	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_fifoctl_s2_sf	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_fifoctl_s1_sf	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_fifoctl_s1_df	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_div_seq	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_div_pipe	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_asymfifoctl_s2_sf	J-2014.09-SP1	Enhancement		Simulation	The Verilog simulation model was modified to comply with the VCS NLP power modeling simulation flow
+DW_fp_div	J-2014.09-SP1	Bug	9000782646	Synthesis	The 'str' implementation of DW_fp_div provides incorrect results for output z and status inexact bits with some operand pairs when a/b  remainder = 0. The output z may show 1 ulp error, but only when rnd is 1, 3, or 4. The status inexact bit incorrectly becomes '1' at all rnd modes with some operand pairs when there is no remainder.
+DW_tap_uc	I-2013.12-SP5	Bug	9000744388	Synthesis	DW_tap and DW_tap_uc remove redundant clock-phase logic on TCK path
+DW_tap 	I-2013.12-SP5	Bug	9000744388	Synthesis	DW_tap and DW_tap_uc remove redundant clock-phase logic on TCK path
+DW_ram_2r_2w_s_dff	I-2013.12-SP5	Enhancement		NewPart	New Component added; DW_ram_2r_2w_s_dff- Synchronous Write, Asynchronous Read, 4-port (2 read/2 write) Flip-Flop based RAM
+DW_sqrt_seq	I-2013.12-SP4	Bug	9000741261	Simulation	Mismatch between simulation and synthesis in the DW_div_ seq component. This issue also affects DW_mult_seq  and DW_sqrt_seq  components.
+DW_mult_seq	I-2013.12-SP4	Bug	9000741261	Simulation	Mismatch between simulation and synthesis in the DW_div_ seq component. This issue also affects DW_mult_seq  and DW_sqrt_seq  components.
+DW_div_ seq	I-2013.12-SP4	Bug	9000741261	Simulation	Mismatch between simulation and synthesis in the DW_div_ seq component. This issue also affects DW_mult_seq  and DW_sqrt_seq  components.
+DW_data_qsync_lh	I-2013.12-SP3	Bug	9000736629	Synthesis	Incorrect functionality of DW_data_qsync_lh
+DW_fp_sincos	I-2013.12-SP2	Bug	9000720958	Simulation	DW_fp_sincos component datasheet and simulation model removal of arch=2 parameter that references obsolete DW02_sincos  component.
+DWF_dp_mult_comb_sat	I-2013.12-SP1	Enhancement		NewPart	New component added (datapath function)
+DWF_dp_mult_sat	I-2013.12-SP1	Enhancement		NewPart	New component added (datapath function)
+DWF_dp_mult_ovfldet	I-2013.12-SP1	Enhancement		NewPart	New component added (datapath function)
+DWF_dp_mult_comb	I-2013.12-SP1	Enhancement		NewPart	New component added (datapath function)
+DW_div_sat	I-2013.12-SP1	Enhancement		NewPart	New component added
+DW_fifo_s2_sf	I-2013.12-SP1	Bug	9000688940	Simulation	Discrepancy between simulation model and actual synthesized netlist and document

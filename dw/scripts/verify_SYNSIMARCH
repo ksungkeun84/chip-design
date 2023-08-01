@@ -1,0 +1,253 @@
+#!/bin/sh
+# set -x
+
+CMD_NUM=$#
+ARGV="$*"
+trap interr 2
+
+#############################################################
+### Helping functions:
+#############################################################
+interr( )  
+{ 
+   MESSAGE E ; exit 99 
+}
+
+ECHOC( )
+{  
+   str=`echo -n JUNK | grep "^-n"`
+   if [ "$str" = "" ] ; then echo -n "$1" ; else echo "${1}\c" ; fi
+}
+
+MESSAGE( )
+{  
+   case $1 in
+    1) echo "Unix command [${2}] is not found in the envrironment [$PATH]." ;;
+    2) echo "ERROR: You must install the $ARCH architecture."
+       echo "                      in order to re-analyze DW BB libraries with HDLC." ;;      
+    3) echo "ERROR: No such directory [${2}] exists." ;;
+    4) echo "ERROR: No write permission in directory [${2}]." ;;
+    5) echo "ERROR: No executable binary [${2}] is found." ;;
+    6) echo "ERROR: You must install a 32-bit architecture of DC"
+       echo "       in order to re-analyze DW BB libraries." ;;
+    E) echo "Abort." ;;
+    U) echo "Usage: dw_analyze.sh full_path_2_tmp_file_name syn|sim" 
+       echo "       full_path_2_tmp_file_name = /tmp/junk.$$"
+       echo "       syn = reanalyze for DWBB components under SYNOPSYS"
+       echo "       sim = reanalyze for DWBB components under VCS_HOME" ;;
+   P1) echo "No write permission for the file [${2}]." ;;
+   P2) echo "No write permission for the directory [${2}]." ;;
+   esac
+
+   case $1 in
+    [12EUP]*) exit 99 ;;
+         *) ;;
+   esac
+}
+
+YorN( )
+{  
+   ECHOC "$1"
+   read tmp_input
+   case "$tmp_input" in
+        [yY]*) return 1 ;;
+            *) return 0 ;; 
+   esac
+}
+
+Is_Valid_SYNSIM( )
+{ 
+   b_dir="$1"
+   if [ ! -d "$b_dir" ] ; then MESSAGE 3 "$b_dir" ; return 0 ; 
+   else
+      if [ $Test_writable -ne 0 ] ; then
+	if [ ! -w "$b_dir" ] ; then MESSAGE 4 "$b_dir" ; return 0 ; fi 
+      fi
+   fi ; return 1
+}
+
+Is_Valid_SS_BIN( )
+{
+   bp="$1"
+   if [ $Is_SYNOPSYS -eq 1 ] ; then
+      pr="echo quit |"
+      ag="   2> $GB 1>&2"
+      e_str="64bit Not Implemented. analyzing VHDL files"
+      ag1="-x \"analyze -format VHDL junk.vhd\" | grep \"$e_str\" | wc -c"
+   fi
+   if [ $Is_SNPS_SIM -eq 1 ] ; then
+      pr=""
+      ag="-v 2> $GB 1>&2"
+      ag1=""
+      VCS_HOME="$b_dir" 
+      export VCS_HOME
+      if [ "x$USE_FULL_64VCS" != "x" ]; then
+          FlagFor64="-full64"
+      fi
+   fi
+   eval "$pr $bp $FlagFor64 $ag"
+   if [ $? -eq 0 ] ; then 
+      if [ "$ag1" != "" ] ; then
+        if [ `eval "$pr $bp $ag1"` -gt 0 ] ; then return 1 ; fi
+      fi
+      EXECUTABLE_BIN_4_EST="$bp" ; return 2
+   fi
+   return 0 
+   ### 2 = valid 
+   ### 1 = need to have 32-bit arch
+   ### 0 = not a valid 
+}
+
+Get_SYNSIM( )
+{
+   b_dir="$1"		## base directory
+   x_dir="$1/bin"	## executable directory
+   Is_Valid_SYNSIM $b_dir
+   if [ $? -eq 0 ] ; then return 0 ; fi
+   if [ $Is_SYNOPSYS -eq 1 ] ; then 
+      ### If the file, snps_common.sh, is available, then it can be used
+      #   to make sure a 32-bit executable is accessed
+      #
+      if [ -f $b_dir/bin/snps_common.sh ]; then ## look for snps_common.sh
+        . $b_dir/bin/snps_common.sh		## source it
+	plat32=`getPlatform -32`	## determine 32-bit platform name
+	if [ $plat32 != "" ]; then
+	  if [ -d $b_dir/$plat32/syn/bin ]; then	## if 32-bit platform dir found
+	    x_dir=$b_dir/$plat32/syn/bin		## then set x_dir to it
+	  fi
+	fi
+      fi
+      if [ -x $x_dir/dc_shell-t ]; then
+        Is_Valid_SS_BIN "$x_dir/dc_shell-t"
+        case $? in
+          2) return 1 ;;
+          1) MESSAGE 6 ; return 0 ;; 
+          0) ;;
+        esac
+      elif [ -x $b_dir/bin/fpga_shell ]; then
+        Is_Valid_SS_BIN "${b_dir}/bin/fpga_shell"
+        case $? in
+          2) return 1 ;;
+          1) MESSAGE 6 ; return 0 ;; 
+          0) ;;
+        esac
+      else
+        ds="bin */syn/bin" 
+        ## search first for dc_shell-t, then for fpga_shell
+        for n in `cd $b_dir ; find $ds -name dc_shell-t | sort -r` `cd $b_dir ; find $ds -name fpga_shell | sort -r` ; do
+            Is_Valid_SS_BIN "${b_dir}/$n"
+            case $? in
+              2) return 1 ;;
+              1) MESSAGE 6 ; return 0 ;; 
+              0) ;;
+            esac
+        done 
+        MESSAGE 5 "dc_shell-t or fpga_shell"  ; return 0
+     fi
+   fi
+   if [ $Is_SNPS_SIM -eq 1 ] ; then 
+      ds="bin/*"
+      bn="vhdlan" 
+      for n in `cd $b_dir ; find $ds -name $bn | sort -r` ; do
+          Is_Valid_SS_BIN "${b_dir}/$n"
+          case $? in
+            2) return 1 ;;
+            1) MESSAGE 6 ; return 0 ;; 
+            0) ;;
+          esac
+      done 
+      MESSAGE 5 $bn ; return 0
+   fi
+}
+
+#############################################################
+### 
+#############################################################
+Init( )
+{
+   PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin ; export PATH
+   GB="/dev/null"
+   for bf in echo clear dirname find grep rm sort wc ; do
+      type $bf 2> $GB 1>&2
+      if [ $? -gt 0 ] ; then MESSAGE 1 $bf ; fi
+   done
+
+   Test_writable=1;
+   Is_SYNOPSYS=0
+   Is_SNPS_SIM=0
+}
+
+Parse_ARGV( )
+{
+   if [ $CMD_NUM -ne 2 ] ; then MESSAGE U ; fi
+   rm -f $1 2> $GB
+
+   if [ -f "$1" ] ; then 
+      if [ ! -w "$1" ] ; then MESSAGE P1 $1 ; fi 
+   else
+      tmpd=`dirname $1`
+      if [ ! -d "$tmpd" -o ! -w "$tmpd" ] ; then MESSAGE P2 $tmpd ; fi 
+   fi
+
+   CSH_SOURCE="$1"
+
+   case "$2" in
+      syn) Is_SYNOPSYS=1 ; VCS_HOME="" ;;
+      sim) Is_SNPS_SIM=1 ; SYNOPSYS=""     ;;
+      idp) Test_writable=0 ; Is_SNPS_SIM=1 ; SYNOPSYS=""     ;;
+   esac 
+}
+
+GET_EXECUTABLE( )
+{
+   pstr="" ; testd=""
+   if [ $Is_SYNOPSYS -eq 1 ] ; then
+      pstr="Enter the path for SYNOPSYS: "
+      if [ "$SYNOPSYS" != "" ] ; then 
+         Is_Valid_SYNSIM $SYNOPSYS
+         if [ $? -eq 1 ] ; then testd="$SYNOPSYS" ; fi 
+         SYNOPSYS="" ; fi
+   elif [ $Is_SNPS_SIM -eq 1 ] ; then 
+      pstr="Enter the path for VCS_HOME: "
+      if [ "$VCS_HOME" != "" ] ; then 
+         Is_Valid_SYNSIM $VCS_HOME
+         if [ $? -eq 1 ] ; then 
+           testd="$VCS_HOME" ; 
+         fi 
+         VCS_HOME="" 
+      fi  
+   fi
+   Is_Need_2_CHKB=1
+   if [ "$EXECUTABLE_BIN_4_EST" != "" ] ; then 
+      Is_Valid_SS_BIN "$EXECUTABLE_BIN_4_EST"
+      if [ $? -eq 2 -a "$testd" != "" ] ; then Is_Need_2_CHKB=0 ; fi 
+   fi
+   if [ $Is_Need_2_CHKB -eq 1 ] ; then
+      EXECUTABLE_BIN_4_EST=""
+      until [ "$EXECUTABLE_BIN_4_EST" != "" ] ; do
+         if [ "$testd" = "" ] ; then ECHOC "$pstr" ; read testd ; fi
+         Get_SYNSIM "$testd"
+         if [ $? -eq 0 ] ; then 
+            YorN "Want to re-enter[y|n]? "
+            if [ $? -eq 0 ] ; then MESSAGE E ; fi 
+            testd="" 
+         fi
+      done
+   fi
+   echo "setenv EXECUTABLE_BIN_4_EST $EXECUTABLE_BIN_4_EST" > $CSH_SOURCE
+   if [ $Is_SYNOPSYS -eq 1 ] ; then echo "setenv SYNOPSYS $testd" >> $CSH_SOURCE ; fi
+   if [ $Is_SNPS_SIM -eq 1 ] ; then 
+     echo "setenv VCS_HOME $testd" >> $CSH_SOURCE 
+     if [ -x "$testd/bin/vcs" ] ; then
+       echo "setenv VCS_HOME $testd" >> $CSH_SOURCE 
+     fi
+   fi
+   exit 0
+}
+
+#############################################################
+### 
+#############################################################
+Init
+Parse_ARGV $ARGV
+GET_EXECUTABLE

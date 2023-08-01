@@ -1,0 +1,4 @@
+rpl presto presto_vhdl
+clf presto presto_vhdl
+cla presto presto_vhdl
+verif presto presto_vhdl
